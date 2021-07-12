@@ -1,13 +1,33 @@
+// web/src/components/Comment/Comment.stories.js
+
 import Comment from './Comment'
 
-export const generated = () => {
+export const defaultView = () => {
   return (
     <div className="m-4">
       <Comment
         comment={{
-          name: 'Joe Smith',
-          body: 'I am Joe Smith and I have crazy political views that I will repeat ad naseum. Blah blah blah.',
-          createdAt: '2021-05-01T12:00:43Z',
+          name: 'Rob Cameron',
+          body: 'This is the first comment!',
+          createdAt: '2020-01-01T12:34:56Z',
+        }}
+      />
+    </div>
+  )
+}
+
+export const moderatorView = () => {
+  mockCurrentUser({
+    roles: ['moderator'],
+  })
+
+  return (
+    <div className="m-4">
+      <Comment
+        comment={{
+          name: 'Rob Cameron',
+          body: 'This is the first comment!',
+          createdAt: '2020-01-01T12:34:56Z',
         }}
       />
     </div>
